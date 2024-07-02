@@ -4,13 +4,16 @@ import 'package:flutter/material.dart';
 
 class CustemBottom extends StatelessWidget {
   const CustemBottom({
-    super.key,
+    super.key, required this.text,
   });
+  final String text;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        
+      },
       child: Container(
         alignment: Alignment.center,
         width: double.infinity,
@@ -20,7 +23,7 @@ class CustemBottom extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           color: AppColors.primaryColor,
         ),
-        child: Text('Next', style: AppTextStyles.poppinsTextStyle500Size18 ),
+        child: Text(text, style: AppTextStyles.poppinsTextStyle500Size18 ),
       ),
     );
   }
