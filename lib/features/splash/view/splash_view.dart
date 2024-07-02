@@ -1,6 +1,6 @@
+import 'package:dalel/core/functions/custem_navigate.dart';
 import 'package:dalel/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -12,12 +12,11 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 2), () {
-      GoRouter.of(context).push('/on_boarding_view');
-    });
+    delayedMethod();
     super.initState();
   }
 
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,4 +24,10 @@ class _SplashViewState extends State<SplashView> {
       child: Text('Dalel', style: AppTextStyles.pacifico400Style),
     ));
   }
+   void delayedMethod() {
+    Future.delayed(const Duration(seconds: 2), () {
+      custemNavigate(context, '/on_boarding_view');
+    });
+  }
+
 }
