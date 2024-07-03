@@ -4,16 +4,15 @@ import 'package:flutter/material.dart';
 
 class CustemBottom extends StatelessWidget {
   const CustemBottom({
-    super.key, required this.text,
+    super.key, required this.text,this.onTap
   });
   final String text;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        
-      },
+      onTap: onTap,
       child: Container(
         alignment: Alignment.center,
         width: double.infinity,

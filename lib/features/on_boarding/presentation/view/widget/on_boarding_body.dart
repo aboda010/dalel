@@ -4,23 +4,25 @@ import 'package:dalel/features/on_boarding/presentation/view/widget/custem_smoot
 import 'package:flutter/material.dart';
 
 class OnBoardingBody extends StatelessWidget {
-  OnBoardingBody({
-    super.key,
+  const OnBoardingBody({
+    super.key, required this.controller, this.onPageChanged,
   });
-  final PageController _controller = PageController();
+  final PageController controller ;
+  final void Function(int)? onPageChanged;
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: PageView.builder(
+        onPageChanged:onPageChanged ,
         itemCount: onBoardingDate.length,
-        controller: _controller,
+        controller: controller,
         itemBuilder: (context, index) {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Image.asset(onBoardingDate[index].image),
-              CustemSmoothPageIndictor(controller: _controller),
+              CustemSmoothPageIndictor(controller: controller),
               Text(
                 textAlign: TextAlign.center,
                 maxLines: 2,

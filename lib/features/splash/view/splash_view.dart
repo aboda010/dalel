@@ -1,4 +1,6 @@
+import 'package:dalel/core/database/cache/cache_helper.dart';
 import 'package:dalel/core/functions/custem_navigate.dart';
+import 'package:dalel/core/routes/app_router.dart';
 import 'package:dalel/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
@@ -12,11 +14,11 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
-    delayedMethod();
+    checkOnBoardingVisited();
+
     super.initState();
   }
 
- 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,10 +26,18 @@ class _SplashViewState extends State<SplashView> {
       child: Text('Dalel', style: AppTextStyles.pacifico400Style),
     ));
   }
-   void delayedMethod() {
+
+  void delayedNavigate(context, path) {
     Future.delayed(const Duration(seconds: 2), () {
-      custemNavigate(context, '/on_boarding_view');
+      custemPushReplaceNavigate(context, path);
     });
   }
-
+  void checkOnBoardingVisited() async {
+    bool isBoradingVisited = await CacheHelper().getData(key: 'IsOnBoardingVisited') ?? false;
+    if (isBoradingVisited) {
+      delayedNavigate(context, signupView);
+    } else {
+      delayedNavigate(context, onBoardingView);
+    }
+  }
 }

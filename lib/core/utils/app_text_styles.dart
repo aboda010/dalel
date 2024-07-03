@@ -26,4 +26,22 @@ abstract class AppTextStyles {
     fontFamily: 'poppins',
     fontWeight: FontWeight.w500,
   );
+  static final poppinsTextStyle600Size12 = TextStyle(
+    fontSize: 12,
+    color: Colors.grey,
+    fontFamily: 'poppins',
+    fontWeight: FontWeight.w600,
+  );
+  static final poppinsTextStyle600Size28 = TextStyle(
+    fontSize: 28,
+    color: Colors.black,
+    fontFamily: 'poppins',
+    fontWeight: FontWeight.w600,
+  );
+  static final poppinsTextStyle400Size12 = TextStyle(
+    fontSize: 12,
+    color: AppColors.deebgrey,
+    fontFamily: 'poppins',
+    fontWeight: FontWeight.w400,
+  );
 }
