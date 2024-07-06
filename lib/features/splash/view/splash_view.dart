@@ -1,6 +1,7 @@
 import 'package:dalel/core/database/cache/cache_helper.dart';
 import 'package:dalel/core/functions/custem_navigate.dart';
 import 'package:dalel/core/routes/app_router.dart';
+import 'package:dalel/core/services/service_locator.dart';
 import 'package:dalel/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +34,7 @@ class _SplashViewState extends State<SplashView> {
     });
   }
   void checkOnBoardingVisited() async {
-    bool isBoradingVisited = await CacheHelper().getData(key: 'IsOnBoardingVisited') ?? false;
+    bool isBoradingVisited = await getIt<CacheHelper>().getData(key: 'IsOnBoardingVisited') ?? false;
     if (isBoradingVisited) {
       delayedNavigate(context, signupView);
     } else {
