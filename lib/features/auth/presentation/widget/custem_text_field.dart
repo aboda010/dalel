@@ -22,7 +22,6 @@ class CustemTextField extends StatelessWidget {
             labelText,
             style: AppTextStyles.poppinsTextStyle600Size12,
           ),
-          border: const OutlineInputBorder(),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: AppColors.grey),
           ),

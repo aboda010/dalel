@@ -40,6 +40,7 @@ class _SignUpBodyState extends State<SignUpBody> {
           Row(
             children: [
               Checkbox(
+                side: const BorderSide(color: Colors.grey),
                 value: isChecked,
                 onChanged: (bool? newValue) {
                   setState(() {
@@ -47,8 +48,18 @@ class _SignUpBodyState extends State<SignUpBody> {
                   });
                 },
               ),
-              Text('I have agree to our Terms and Condition',
-                  style: AppTextStyles.poppinsTextStyle400Size12),
+              RichText(
+                text: TextSpan(
+                    text: 'I have agree to our ',
+                    style: AppTextStyles.poppinsTextStyle400Size12,
+                    children: [
+                      TextSpan(
+                        text: 'Terms and Condition',
+                        style: AppTextStyles.poppinsTextStyle600Size12
+                            .copyWith(decoration: TextDecoration.underline),
+                      )
+                    ]),
+              ),
             ],
           ),
           const SizedBox(height: 65),

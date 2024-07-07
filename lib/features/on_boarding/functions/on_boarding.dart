@@ -7,4 +7,5 @@ void IsOnBoardingVisited(){
 
  getIt<CacheHelper>().saveData(key: 'IsOnBoardingVisited', value: true);
 
+
 }

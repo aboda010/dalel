@@ -19,7 +19,7 @@ class SignUpView extends StatelessWidget {
                 style: AppTextStyles.poppinsTextStyle600Size28,
               ),
             ),
-            SignUpBody(),
+            const SignUpBody(),
           ],
         ),
       ),
