@@ -10,3 +10,6 @@ final class SignupFaiulreState extends AuthState {
 
   SignupFaiulreState({required this.errorMessage});
 }
+final class TermsAndConditionUpdateState extends AuthState {}
+final class TogglePasswordVisibilityState extends AuthState {}
+

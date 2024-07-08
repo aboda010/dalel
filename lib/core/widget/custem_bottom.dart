@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 
 class CustemBottom extends StatelessWidget {
   const CustemBottom({
-    super.key, required this.text,this.onTap
+    super.key, required this.text,this.onTap,this.color
   });
   final String text;
   final void Function()? onTap;
+  final Color ?color ;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class CustemBottom extends StatelessWidget {
         height: 56,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: AppColors.primaryColor,
+          color: color
         ),
         child: Text(text, style: AppTextStyles.poppinsTextStyle500Size18 ),
       ),

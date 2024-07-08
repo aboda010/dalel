@@ -1,4 +1,5 @@
-
+import 'package:dalel/core/functions/custem_toast.dart';
+import 'package:dalel/core/utils/app_colors.dart';
 import 'package:dalel/core/widget/custem_bottom.dart';
 import 'package:dalel/features/auth/presentation/auth_cuibt/cubit/auth_cubit.dart';
 import 'package:dalel/features/auth/presentation/auth_cuibt/cubit/auth_state.dart';
@@ -14,45 +15,76 @@ class CustemSignUpForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-   
+        if (state is SignupSuccessSate) {
+          custemToastMessage('Create Account Successfully');
+        } else if (state is SignupFaiulreState) {
+          custemToastMessage(
+            state.errorMessage,
+          );
+        }
       },
       builder: (context, state) {
+        AuthCubit authCubit = BlocProvider.of<AuthCubit>(context);
+
         return Form(
+          key: authCubit.signUpKey,
           child: Column(
             children: [
               CustemTextFormField(
                 onChanged: (firstname) {
-                  BlocProvider.of<AuthCubit>(context).firstName = firstname;
+                  authCubit.firstName = firstname;
                 },
                 labelText: 'First Name',
               ),
               CustemTextFormField(
                 onChanged: (lastName) {
-                  BlocProvider.of<AuthCubit>(context).lastName = lastName;
+                  authCubit.lastName = lastName;
                 },
                 labelText: 'Last Name',
               ),
               CustemTextFormField(
                 onChanged: (email) {
-                  BlocProvider.of<AuthCubit>(context).email = email;
+                  authCubit.email = email;
                 },
                 labelText: 'Email Address',
               ),
               CustemTextFormField(
+                isPasswordField: authCubit.isPasswordVisible,
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    authCubit.togglePasswordVisibility();
+                  },
+                  icon: Icon(
+                    authCubit.isPasswordVisible
+                        ? Icons.visibility_off
+                        : Icons.visibility,
+                    color: Colors.grey,
+                  ),
+                ),
                 onChanged: (password) {
-                  BlocProvider.of<AuthCubit>(context).password = password;
+                  authCubit.password = password;
                 },
                 labelText: 'Password',
               ),
               const TermsAndCondition(),
               const SizedBox(height: 65),
-              CustemBottom(
-                text: 'Sign Up',
-                onTap: () {
-                  BlocProvider.of<AuthCubit>(context)
-                      .signupWithEmailAndPassword();
-                },
-              ),
+              state is SignupLoadingState
+                  ? CircularProgressIndicator(
+                      color: AppColors.primaryColor,
+                    )
+                  : CustemBottom(
+                      color: authCubit.termsAndConditonsCheckValue == true
+                          ? AppColors.primaryColor
+                          : Colors.grey[400],
+                      text: 'Sign Up',
+                      onTap: () {
+                        if (authCubit.termsAndConditonsCheckValue == true) {
+                          if (authCubit.signUpKey.currentState!.validate()) {
+                            authCubit.signupWithEmailAndPassword();
+                          }
+                        }
+                      },
+                    ),
             ],
           ),
         );

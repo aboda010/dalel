@@ -1,5 +1,5 @@
-import 'package:dalel/core/utils/app_text_styles.dart';
 import 'package:dalel/features/auth/presentation/widget/signup_body.dart';
+import 'package:dalel/features/auth/presentation/widget/welcome_message.dart';
 import 'package:flutter/material.dart';
 
 class SignUpView extends StatelessWidget {
@@ -7,23 +7,19 @@ class SignUpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
       child: Scaffold(
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 152, bottom: 50),
-              child: Text(
-                'Welcome !',
-                style: AppTextStyles.poppinsTextStyle600Size28,
-              ),
+        body: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: Center(child: WelcomeMessage()),
             ),
-            const SignUpBody(),
+            SliverToBoxAdapter(
+              child: SignUpBody(),
+            )
           ],
         ),
       ),
     );
   }
 }
-

@@ -20,29 +20,25 @@ class _SignUpBodyState extends State<SignUpBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView(
-        children: [
-          const CustemSignUpForm(),
-         
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('Already have an account?',
-                  style: AppTextStyles.poppinsTextStyle400Size12),
-              TextButton(
-                  onPressed: () {
-                    custemPushReplaceNavigate(context, loginView);
-                  },
-                  child: Text(
-                    'Sign In',
-                    style: AppTextStyles.poppinsTextStyle600Size12,
-                  )),
-            ],
-          )
-        ],
-      ),
+    return Column(
+      children: [
+        const CustemSignUpForm(),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Already have an account?',
+                style: AppTextStyles.poppinsTextStyle400Size12),
+            TextButton(
+                onPressed: () {
+                  custemPushReplaceNavigate(context, loginView);
+                },
+                child: Text(
+                  'Sign In',
+                  style: AppTextStyles.poppinsTextStyle600Size12,
+                )),
+          ],
+        )
+      ],
     );
   }
 }
-
