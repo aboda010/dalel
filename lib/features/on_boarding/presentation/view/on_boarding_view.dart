@@ -47,7 +47,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                           onTap: () {
                             IsOnBoardingVisited();
 
-                            custemPushReplaceNavigate(context, loginView);
+                            custemPushReplaceNavigate(context, signInView);
                           },
                           child: const Text('Login now'))
                     ],

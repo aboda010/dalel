@@ -30,7 +30,7 @@ class _SignUpBodyState extends State<SignUpBody> {
                 style: AppTextStyles.poppinsTextStyle400Size12),
             TextButton(
                 onPressed: () {
-                  custemPushReplaceNavigate(context, loginView);
+                  custemPushReplaceNavigate(context, signInView);
                 },
                 child: Text(
                   'Sign In',

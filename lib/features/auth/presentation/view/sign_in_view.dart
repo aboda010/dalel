@@ -3,8 +3,8 @@ import 'package:dalel/core/utils/app_text_styles.dart';
 import 'package:dalel/features/auth/presentation/widget/login_body.dart';
 import 'package:flutter/material.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class SignInView extends StatelessWidget {
+  const SignInView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,6 @@
+import 'package:dalel/core/functions/custem_navigate.dart';
 import 'package:dalel/core/functions/custem_toast.dart';
+import 'package:dalel/core/routes/app_router.dart';
 import 'package:dalel/core/utils/app_colors.dart';
 import 'package:dalel/core/widget/custem_bottom.dart';
 import 'package:dalel/features/auth/presentation/auth_cuibt/cubit/auth_cubit.dart';
@@ -17,6 +19,7 @@ class CustemSignUpForm extends StatelessWidget {
       listener: (context, state) {
         if (state is SignupSuccessSate) {
           custemToastMessage('Create Account Successfully');
+          custemPushReplaceNavigate(context, homeView);
         } else if (state is SignupFaiulreState) {
           custemToastMessage(
             state.errorMessage,
