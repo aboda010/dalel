@@ -22,10 +22,10 @@ class _LoginBodyState extends State<LoginBody> {
     return Expanded(
       child: ListView(
         children: [
-          const CustemTextField(
+          const CustemTextFormField(
             labelText: 'Email Address',
           ),
-          const CustemTextField(
+          const CustemTextFormField(
             labelText: 'Password',
           ),
           Align(

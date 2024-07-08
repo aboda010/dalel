@@ -1,8 +1,7 @@
 import 'package:dalel/core/functions/custem_navigate.dart';
 import 'package:dalel/core/routes/app_router.dart';
 import 'package:dalel/core/utils/app_text_styles.dart';
-import 'package:dalel/core/widget/custem_bottom.dart';
-import 'package:dalel/features/auth/presentation/widget/custem_text_field.dart';
+import 'package:dalel/features/auth/presentation/widget/custem_signup_form.dart';
 import 'package:flutter/material.dart';
 
 class SignUpBody extends StatefulWidget {
@@ -18,52 +17,14 @@ class _SignUpBodyState extends State<SignUpBody> {
   TextEditingController password = TextEditingController();
 
   TextEditingController firstName = TextEditingController();
-  bool isChecked = false;
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView(
         children: [
-          const CustemTextField(
-            labelText: 'First Name',
-          ),
-          const CustemTextField(
-            labelText: 'Last Name',
-          ),
-          const CustemTextField(
-            labelText: 'Email Address',
-          ),
-          const CustemTextField(
-            labelText: 'Password',
-          ),
-          Row(
-            children: [
-              Checkbox(
-                side: const BorderSide(color: Colors.grey),
-                value: isChecked,
-                onChanged: (bool? newValue) {
-                  setState(() {
-                    isChecked = newValue!;
-                  });
-                },
-              ),
-              RichText(
-                text: TextSpan(
-                    text: 'I have agree to our ',
-                    style: AppTextStyles.poppinsTextStyle400Size12,
-                    children: [
-                      TextSpan(
-                        text: 'Terms and Condition',
-                        style: AppTextStyles.poppinsTextStyle600Size12
-                            .copyWith(decoration: TextDecoration.underline),
-                      )
-                    ]),
-              ),
-            ],
-          ),
-          const SizedBox(height: 65),
-          const CustemBottom(text: 'Sign Up'),
+          const CustemSignUpForm(),
+         
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -84,3 +45,4 @@ class _SignUpBodyState extends State<SignUpBody> {
     );
   }
 }
+

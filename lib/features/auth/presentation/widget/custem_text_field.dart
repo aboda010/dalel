@@ -2,21 +2,24 @@ import 'package:dalel/core/utils/app_colors.dart';
 import 'package:dalel/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
-class CustemTextField extends StatelessWidget {
-  const CustemTextField({
+class CustemTextFormField extends StatelessWidget {
+  const CustemTextFormField({
     super.key,
     required this.labelText,
-    this.controller,
+    this.onChanged,
+    this.onFieldSubmitted,
   });
   final String labelText;
-  final TextEditingController? controller;
+  final void Function(String)? onChanged;
+  final void Function(String)? onFieldSubmitted;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-      child: TextField(
-        controller: controller,
+      child: TextFormField(
+        onFieldSubmitted: onFieldSubmitted,
+        onChanged: onChanged,
         decoration: InputDecoration(
           label: Text(
             labelText,
