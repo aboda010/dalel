@@ -1,4 +1,3 @@
-import 'package:dalel/core/services/service_locator.dart';
 import 'package:dalel/features/auth/presentation/auth_cuibt/cubit/auth_cubit.dart';
 import 'package:dalel/features/auth/presentation/view/sign_in_view.dart';
 import 'package:dalel/features/auth/presentation/view/sign_up_view.dart';

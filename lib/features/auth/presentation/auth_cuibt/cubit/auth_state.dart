@@ -12,4 +12,11 @@ final class SignupFaiulreState extends AuthState {
 }
 final class TermsAndConditionUpdateState extends AuthState {}
 final class TogglePasswordVisibilityState extends AuthState {}
+final class SignInLoadingState extends AuthState {}
+final class SignInSuccessSate extends AuthState {}
+final class SignInFaiulreState extends AuthState {
 
+  final String errorMessage;
+
+  SignInFaiulreState({required this.errorMessage});
+}
