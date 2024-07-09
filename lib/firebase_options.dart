@@ -41,48 +41,48 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyC16RSBLRtfgvmxD3a8J7u5pUJ5e0qYKsI',
-    appId: '1:705177514166:web:f941e043f05180bba97617',
-    messagingSenderId: '705177514166',
-    projectId: 'dalelapp-bf77f',
-    authDomain: 'dalelapp-bf77f.firebaseapp.com',
-    storageBucket: 'dalelapp-bf77f.appspot.com',
-    measurementId: 'G-FM5KRZZ275',
+    apiKey: 'AIzaSyBmW2AiKIAW-ROlnQ1Ym-DHrYv0k1w9lTo',
+    appId: '1:996455173249:web:acbc6d47a4c412e5889180',
+    messagingSenderId: '996455173249',
+    projectId: 'dalelapp-b090e',
+    authDomain: 'dalelapp-b090e.firebaseapp.com',
+    storageBucket: 'dalelapp-b090e.appspot.com',
+    measurementId: 'G-K1REEXY6S6',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBjIfWvYYAx7O9HIfHp5C9NOy8-qTgeYDo',
-    appId: '1:705177514166:android:49e2412a48b351cca97617',
-    messagingSenderId: '705177514166',
-    projectId: 'dalelapp-bf77f',
-    storageBucket: 'dalelapp-bf77f.appspot.com',
+    apiKey: 'AIzaSyBxRUxBn4Xmc4RNgxqXKBb9yALUCSBgp6k',
+    appId: '1:996455173249:android:ce0e744e8ef17f4f889180',
+    messagingSenderId: '996455173249',
+    projectId: 'dalelapp-b090e',
+    storageBucket: 'dalelapp-b090e.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBT1CvNGXOqX_ZlND12Lqdi-AYSt_eTTfE',
-    appId: '1:705177514166:ios:4d3844a1fd186ad5a97617',
-    messagingSenderId: '705177514166',
-    projectId: 'dalelapp-bf77f',
-    storageBucket: 'dalelapp-bf77f.appspot.com',
+    apiKey: 'AIzaSyAwGkFwhHfJnuPNo192fT--I_rgr3lnxuQ',
+    appId: '1:996455173249:ios:d6ce1e91d7335295889180',
+    messagingSenderId: '996455173249',
+    projectId: 'dalelapp-b090e',
+    storageBucket: 'dalelapp-b090e.appspot.com',
     iosBundleId: 'com.example.dalel',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBT1CvNGXOqX_ZlND12Lqdi-AYSt_eTTfE',
-    appId: '1:705177514166:ios:4d3844a1fd186ad5a97617',
-    messagingSenderId: '705177514166',
-    projectId: 'dalelapp-bf77f',
-    storageBucket: 'dalelapp-bf77f.appspot.com',
+    apiKey: 'AIzaSyAwGkFwhHfJnuPNo192fT--I_rgr3lnxuQ',
+    appId: '1:996455173249:ios:d6ce1e91d7335295889180',
+    messagingSenderId: '996455173249',
+    projectId: 'dalelapp-b090e',
+    storageBucket: 'dalelapp-b090e.appspot.com',
     iosBundleId: 'com.example.dalel',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyC16RSBLRtfgvmxD3a8J7u5pUJ5e0qYKsI',
-    appId: '1:705177514166:web:612775e7a00a9baaa97617',
-    messagingSenderId: '705177514166',
-    projectId: 'dalelapp-bf77f',
-    authDomain: 'dalelapp-bf77f.firebaseapp.com',
-    storageBucket: 'dalelapp-bf77f.appspot.com',
-    measurementId: 'G-JRR3J7YDC4',
+    apiKey: 'AIzaSyBmW2AiKIAW-ROlnQ1Ym-DHrYv0k1w9lTo',
+    appId: '1:996455173249:web:ada152d65ce54bd0889180',
+    messagingSenderId: '996455173249',
+    projectId: 'dalelapp-b090e',
+    authDomain: 'dalelapp-b090e.firebaseapp.com',
+    storageBucket: 'dalelapp-b090e.appspot.com',
+    measurementId: 'G-X1JYPQ43K6',
   );
 }
