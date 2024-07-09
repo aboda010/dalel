@@ -16,9 +16,20 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
-    checkOnBoardingVisited();
-
+    bool isBoradingVisited =
+        getIt<CacheHelper>().getData(key: 'IsOnBoardingVisited') ?? false;
+    if (isBoradingVisited == true) {
+      FirebaseAuth.instance.currentUser == null
+          ? delayedNavigate(context, signInView)
+          : FirebaseAuth.instance.currentUser!.emailVerified == true
+              ? delayedNavigate(context, homeView)
+              : delayedNavigate(context, signInView);
+    } else {
+      delayedNavigate(context, onBoardingView); 
+      
+    }
     super.initState();
+
   }
 
   @override
@@ -33,17 +44,5 @@ class _SplashViewState extends State<SplashView> {
     Future.delayed(const Duration(seconds: 2), () {
       custemPushReplaceNavigate(context, path);
     });
-  }
-
-  void checkOnBoardingVisited() async {
-    bool isBoradingVisited =
-        await getIt<CacheHelper>().getData(key: 'IsOnBoardingVisited') ?? false;
-    if (isBoradingVisited) {
-      FirebaseAuth.instance.currentUser == null
-          ? delayedNavigate(context, signInView)
-          : delayedNavigate(context, homeView);
-    } else {
-      delayedNavigate(context, onBoardingView);
-    }
   }
 }

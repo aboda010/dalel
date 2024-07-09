@@ -18,8 +18,8 @@ class CustemSignUpForm extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is SignupSuccessSate) {
-          custemToastMessage('Create Account Successfully');
-          custemPushReplaceNavigate(context, homeView);
+          custemToastMessage('Successfully,check your email to verify your account');
+          custemPushReplaceNavigate(context, signInView);
         } else if (state is SignupFaiulreState) {
           custemToastMessage(
             state.errorMessage,
