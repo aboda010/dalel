@@ -62,7 +62,9 @@ class CustemSignInForm extends StatelessWidget {
               Align(
                 alignment: Alignment.bottomRight,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    custemPushReplaceNavigate(context, forgotPasswordView);
+                  },
                   child: Text('Forgot Password ?',
                       style: AppTextStyles.poppinsTextStyle600Size12
                           .copyWith(color: Colors.black)),

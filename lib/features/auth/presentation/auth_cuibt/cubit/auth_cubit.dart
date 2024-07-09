@@ -12,6 +12,7 @@ class AuthCubit extends Cubit<AuthState> {
   bool? termsAndConditonsCheckValue;
   GlobalKey<FormState> signUpKey = GlobalKey();
   GlobalKey<FormState> signInKey = GlobalKey();
+  GlobalKey<FormState> forgotPasswordKey = GlobalKey();
   bool isPasswordVisible = true;
 
   signInWithEmailAndPassword() async {
@@ -75,5 +76,16 @@ class AuthCubit extends Cubit<AuthState> {
 
   verifyEmail() async {
     await FirebaseAuth.instance.currentUser!.sendEmailVerification();
+  }
+
+
+  resetPasswordWithLink() async {
+    try {
+      emit(ForgotPasswordLoadingState());
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email!);
+      emit(ForgotPasswordSuccessSate());
+    }  catch (e) {
+      emit(ForgotPasswordFaiulreState(errorMessage: e.toString()));
+    }
   }
 }

@@ -1,5 +1,6 @@
 import 'package:dalel/core/functions/custem_navigate.dart';
 import 'package:dalel/core/routes/app_router.dart';
+import 'package:dalel/core/utils/app_colors.dart';
 import 'package:dalel/core/widget/custem_bottom.dart';
 import 'package:dalel/features/on_boarding/data/on_boarding_model.dart';
 import 'package:dalel/features/on_boarding/functions/on_boarding.dart';
@@ -53,6 +54,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     ],
                   )
                 : CustemBottom(
+                    color: AppColors.primaryColor,
                     text: 'Next',
                     onTap: () {
                       _controller.nextPage(

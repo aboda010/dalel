@@ -20,3 +20,12 @@ final class SignInFaiulreState extends AuthState {
 
   SignInFaiulreState({required this.errorMessage});
 }
+
+final class ForgotPasswordLoadingState extends AuthState {}
+final class ForgotPasswordSuccessSate extends AuthState {}
+final class ForgotPasswordFaiulreState extends AuthState {
+
+  final String errorMessage;
+
+  ForgotPasswordFaiulreState({required this.errorMessage});
+}
