@@ -20,10 +20,10 @@ class WelcomeBanner extends StatelessWidget {
           Text(
             'Dalel',
             style: TextStyle(
-              color: AppColors.ofWihte,
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
-            ),
+                color: AppColors.ofWihte,
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Pacifico'),
           ),
           const SizedBox(height: 18),
           Row(

@@ -16,7 +16,7 @@ class AuthCubit extends Cubit<AuthState> {
   GlobalKey<FormState> forgotPasswordKey = GlobalKey();
   bool isPasswordVisible = true;
 
-  signInWithEmailAndPassword() async {
+  Future<void> signInWithEmailAndPassword() async {
     try {
       emit(SignInLoadingState());
       await FirebaseAuth.instance
@@ -37,7 +37,7 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  signupWithEmailAndPassword() async {
+  Future<void> signupWithEmailAndPassword() async {
     try {
       emit(SignupLoadingState());
 
@@ -49,38 +49,42 @@ class AuthCubit extends Cubit<AuthState> {
       await verifyEmail();
       emit(SignupSuccessSate());
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        emit(SignupFaiulreState(
-            errorMessage: 'The password provided is too weak.'));
-      } else if (e.code == 'email-already-in-use') {
-        emit(SignupFaiulreState(
-            errorMessage: 'The account already exists for that email.'));
-      } else if (e.code == 'invalid-email') {
-        emit(SignupFaiulreState(
-            errorMessage: 'The email address is badly formatted.'));
-      } else {
-        emit(SignupFaiulreState(errorMessage: e.code));
-      }
+      _signUpHandleExpetion(e);
     } catch (e) {
       emit(SignupFaiulreState(errorMessage: e.toString()));
     }
   }
 
-  updateTermsAndConditonsCheckBoxValue({required newValue}) {
+  void _signUpHandleExpetion(FirebaseAuthException e) {
+      if (e.code == 'weak-password') {
+      emit(SignupFaiulreState(
+          errorMessage: 'The password provided is too weak.'));
+    } else if (e.code == 'email-already-in-use') {
+      emit(SignupFaiulreState(
+          errorMessage: 'The account already exists for that email.'));
+    } else if (e.code == 'invalid-email') {
+      emit(SignupFaiulreState(
+          errorMessage: 'The email address is badly formatted.'));
+    } else {
+      emit(SignupFaiulreState(errorMessage: e.code));
+    }
+  }
+
+  void updateTermsAndConditonsCheckBoxValue({required newValue}) {
     termsAndConditonsCheckValue = newValue;
     emit(TermsAndConditionUpdateState());
   }
 
-  togglePasswordVisibility() {
+  void togglePasswordVisibility() {
     isPasswordVisible = !isPasswordVisible;
     emit(TogglePasswordVisibilityState());
   }
 
-  verifyEmail() async {
+  Future<void> verifyEmail() async {
     await FirebaseAuth.instance.currentUser!.sendEmailVerification();
   }
 
-  resetPasswordWithLink() async {
+  Future<void> resetPasswordWithLink() async {
     try {
       emit(ForgotPasswordLoadingState());
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email!);
@@ -90,9 +94,9 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  addUserProfiel() {
+  Future<void> addUserProfiel() async {
     CollectionReference users = FirebaseFirestore.instance.collection('users');
-    users.add({
+    await users.add({
       'first_name': firstName,
       'last_name': lastName,
       'email': email,

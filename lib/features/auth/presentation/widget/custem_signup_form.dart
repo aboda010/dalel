@@ -80,10 +80,10 @@ class CustemSignUpForm extends StatelessWidget {
                           ? AppColors.primaryColor
                           : Colors.grey[400],
                       text: 'Sign Up',
-                      onTap: () {
+                      onTap: ()async {
                         if (authCubit.termsAndConditonsCheckValue == true) {
                           if (authCubit.signUpKey.currentState!.validate()) {
-                            authCubit.signupWithEmailAndPassword();
+                          await  authCubit.signupWithEmailAndPassword();
                           }
                         }
                       },

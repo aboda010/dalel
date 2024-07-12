@@ -39,17 +39,17 @@ class CustemForgotPasswordForm extends StatelessWidget {
                 labelText: 'Email Address',
               ),
               const SizedBox(height: 129),
-              state is SignupLoadingState
+              state is ForgotPasswordLoadingState
                   ? CircularProgressIndicator(
                       color: AppColors.primaryColor,
                     )
                   : CustemBottom(
                       color: AppColors.primaryColor,
                       text: 'Send Reset Password Link',
-                      onTap: () {
+                      onTap: () async{
                         if (authCubit.forgotPasswordKey.currentState!
-                            .validate()) {
-                          authCubit.resetPasswordWithLink();
+                            .validate()){
+                         await authCubit.resetPasswordWithLink();
                         }
                       },
                     ),

@@ -37,6 +37,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 ? Column(
                     children: [
                       CustemBottom(
+                        color: AppColors.primaryColor,
                         text: 'Create An Acount',
                         onTap: () {
                           IsOnBoardingVisited();

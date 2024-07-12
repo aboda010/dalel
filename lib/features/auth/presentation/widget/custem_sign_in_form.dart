@@ -20,7 +20,7 @@ class CustemSignInForm extends StatelessWidget {
       listener: (context, state) {
         if (state is SignInSuccessSate) {
           FirebaseAuth.instance.currentUser!.emailVerified
-              ? custemPushReplaceNavigate(context, homeView)
+              ? custemPushReplaceNavigate(context, homeNavBarWidget)
               : custemToastMessage('Please verify your email address');
         } else if (state is SignInFaiulreState) {
           custemToastMessage(
@@ -78,9 +78,9 @@ class CustemSignInForm extends StatelessWidget {
                   : CustemBottom(
                       color: AppColors.primaryColor,
                       text: 'Sign In',
-                      onTap: () {
+                      onTap: () async{
                         if (authCubit.signInKey.currentState!.validate()) {
-                          authCubit.signInWithEmailAndPassword();
+                         await authCubit.signInWithEmailAndPassword();
                         }
                       },
                     ),

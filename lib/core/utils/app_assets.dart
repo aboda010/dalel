@@ -1,9 +1,29 @@
 class Assets {
   Assets._();
   
+  /// Assets for imagesAncient
+  /// assets/images/ancient.png
+  static const String imagesAncient = "assets/images/ancient.png";
+
+  /// Assets for imagesFontsPacificoRegular
+  /// assets/images/fonts/Pacifico-Regular.ttf
+  static const String imagesFontsPacificoRegular = "assets/images/fonts/Pacifico-Regular.ttf";
+
+  /// Assets for imagesFontsPoppinsRegular
+  /// assets/images/fonts/Poppins-Regular.ttf
+  static const String imagesFontsPoppinsRegular = "assets/images/fonts/Poppins-Regular.ttf";
+
   /// Assets for imagesForgetPassword
   /// assets/images/forgetPassword.png
   static const String imagesForgetPassword = "assets/images/forgetPassword.png";
+
+  /// Assets for imagesIslamic
+  /// assets/images/islamic.png
+  static const String imagesIslamic = "assets/images/islamic.png";
+
+  /// Assets for imagesMenu
+  /// assets/images/menu.svg
+  static const String imagesMenu = "assets/images/menu.svg";
 
   /// Assets for imagesOnBording1
   /// assets/images/onBording1.png
@@ -16,6 +36,11 @@ class Assets {
   /// Assets for imagesOnBording3
   /// assets/images/onBording3.png
   static const String imagesOnBording3 = "assets/images/onBording3.png";
+
+  /// Assets for imagesSalah
+  /// assets/images/Salah.png
+  static const String imagesSalah = "assets/images/Salah.png";
+
 
   /// Assets for imagesSucccesOrder
   /// assets/images/SucccesOrder.png
